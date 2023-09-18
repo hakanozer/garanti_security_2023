@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,22 +15,28 @@
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-            <h2>User SingUp</h2>
-            <form>
+            <h2>User SignUp</h2>
+            <c:if test="${errors != null}">
+                <c:forEach items="${errors}" var="item">
+                    <div><c:out value="${item.getField()}"></c:out> - <c:out value="${item.getDefaultMessage()}"></c:out></div>
+                </c:forEach>
+            </c:if>
+            <form method="post" action="/signup">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
+                    <input required name="email" type="email" class="form-control" id="exampleInputEmail1">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input required name="password" type="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Class</option>
+                    <select required name="selectClass" class="form-select">
+                        <option selected value="">Class</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
+                        <option disabled value="4">Four</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
