@@ -1,6 +1,6 @@
 package com.works.controllers;
 
-import com.works.entities.User;
+import com.works.entities.UserModel;
 import com.works.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -24,7 +24,7 @@ public class SingUpController {
     }
 
     @PostMapping("/signup")
-    public String singup(@Valid User user, BindingResult result, Model model) {
+    public String singup(@Valid UserModel user, BindingResult result, Model model) {
         if (result.hasErrors() ) {
             // result.getFieldErrors().get(0).getDefaultMessage();
             // result.getFieldErrors().get(0).getField()
