@@ -17,6 +17,7 @@
         <div class="col-sm-4">
             <h2>User Login</h2>
             <form method="post" action="/userLogin">
+                <input name="csrf" type="hidden" value='<c:out value="${csrf}"></c:out>' />
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
                     <input required name="email" type="email" class="form-control" id="exampleInputEmail1">
